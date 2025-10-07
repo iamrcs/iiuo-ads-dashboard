@@ -1,0 +1,58 @@
+{% extends "base.html" %}
+
+{% block title %}Dashboard - IIUO Ads{% endblock %}
+
+{% block content %}
+<div class="container">
+  <h1>Welcome, {{ user.username }}</h1>
+  <p>Your websites and ad stats are below.</p>
+
+  <h2>Add New Website</h2>
+  <form class="add-website-form" method="POST" action="/add-website">
+    <input type="text" name="name" id="name" placeholder="Website Name" required />
+    <input type="text" name="domain" id="domain" placeholder="example.com" required />
+    <button type="submit">Add Website</button>
+  </form>
+
+  <h2>Your Websites</h2>
+  <table class="websites-table">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Domain</th>
+        <th>Verified</th>
+        <th>Verification Token</th>
+        <th>Impressions</th>
+        <th>Clicks</th>
+        <th>Revenue (₹)</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for site in sites %}
+      <tr>
+        <td>{{ site.name }}</td>
+        <td>{{ site.domain }}</td>
+        <td>{{ "✅" if site.verified else "❌" }}</td>
+        <td>
+          <code>{{ site.verification_token }}</code>
+          <button class="copy-btn" data-token="{{ site.verification_token }}">Copy</button>
+        </td>
+        <td>{{ site.impressions }}</td>
+        <td>{{ site.clicks }}</td>
+        <td>{{ "%.2f"|format(site.clicks * 0.10) }}</td>
+      </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+
+  <div class="verification-instructions">
+    <h3>Website Verification Instructions</h3>
+    <p>To verify your website, add the following line to your <strong>ads.txt</strong> file on your domain:</p>
+    <pre>iiuo-verification=YOUR_TOKEN_HERE</pre>
+    <p>Then, click "Verify" in the dashboard (or refresh after a few minutes) to confirm your site.</p>
+  </div>
+</div>
+
+<script src="{{ url_for('static', path='app.js') }}"></script>
+
+{% endblock %}
