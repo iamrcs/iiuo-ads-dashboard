@@ -1,0 +1,215 @@
+/* -----------------------------
+   IIUO Ads Dashboard Styles
+----------------------------- */
+
+/* Reset & Base */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+  background-color: #f9f9f9;
+  color: #333;
+  line-height: 1.6;
+  min-height: 100vh;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 24px auto;
+  padding: 0 16px;
+}
+
+/* Headings */
+h1 {
+  font-size: 2rem;
+  margin-bottom: 16px;
+  color: #0056a3;
+}
+
+h2 {
+  font-size: 1.5rem;
+  margin-top: 24px;
+  margin-bottom: 12px;
+  color: #004080;
+}
+
+h3 {
+  font-size: 1.2rem;
+  margin-top: 16px;
+  margin-bottom: 8px;
+  color: #006600;
+}
+
+/* Forms */
+.add-website-form {
+  display: flex;
+  gap: 12px;
+  margin-bottom: 24px;
+  flex-wrap: wrap;
+}
+
+.add-website-form input {
+  padding: 8px 10px;
+  font-size: 14px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  flex: 1 1 200px;
+}
+
+.add-website-form button {
+  padding: 8px 16px;
+  background-color: #0056a3;
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  flex-shrink: 0;
+}
+
+.add-website-form button:hover {
+  background-color: #004080;
+}
+
+/* Tables */
+.websites-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-bottom: 24px;
+}
+
+.websites-table th,
+.websites-table td {
+  padding: 10px 12px;
+  border: 1px solid #ddd;
+  text-align: left;
+  font-size: 14px;
+}
+
+.websites-table th {
+  background-color: #f0f0f0;
+  color: #0056a3;
+}
+
+.websites-table tr:nth-child(even) {
+  background-color: #fdfdfd;
+}
+
+.websites-table tr:hover {
+  background-color: #eef6ff;
+}
+
+/* Verified Row Highlight */
+.websites-table td:nth-child(3) {
+  font-weight: 600;
+  text-align: center;
+}
+
+/* Copy Button */
+.copy-btn {
+  margin-left: 8px;
+  padding: 4px 8px;
+  font-size: 12px;
+  cursor: pointer;
+  border: 1px solid #0056a3;
+  background-color: #fff;
+  color: #0056a3;
+  border-radius: 4px;
+  transition: all 0.2s ease;
+}
+
+.copy-btn:hover {
+  background-color: #0056a3;
+  color: #fff;
+}
+
+/* Verification Instructions */
+.verification-instructions {
+  background-color: #fffff0;
+  border-left: 4px solid #ffcc00;
+  padding: 12px 16px;
+  margin-top: 16px;
+  border-radius: 4px;
+}
+
+.verification-instructions pre {
+  background-color: #f0f0f0;
+  padding: 6px 10px;
+  border-radius: 4px;
+  overflow-x: auto;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .add-website-form {
+    flex-direction: column;
+  }
+
+  .websites-table th,
+  .websites-table td {
+    font-size: 12px;
+    padding: 8px 6px;
+  }
+}
+
+@media (prefers-color-scheme: dark) {
+  body {
+    background-color: #1e1e1e;
+    color: #ddd;
+  }
+
+  .add-website-form input {
+    border: 1px solid #555;
+    background-color: #2a2a2a;
+    color: #ddd;
+  }
+
+  .add-website-form button {
+    background-color: #0066cc;
+  }
+
+  .add-website-form button:hover {
+    background-color: #004080;
+  }
+
+  .websites-table th {
+    background-color: #2a2a2a;
+    color: #66ccff;
+  }
+
+  .websites-table td {
+    border-color: #444;
+  }
+
+  .websites-table tr:nth-child(even) {
+    background-color: #252525;
+  }
+
+  .websites-table tr:hover {
+    background-color: #333;
+  }
+
+  .copy-btn {
+    border-color: #66ccff;
+    color: #66ccff;
+  }
+
+  .copy-btn:hover {
+    background-color: #66ccff;
+    color: #1e1e1e;
+  }
+
+  .verification-instructions {
+    background-color: #2a2a2a;
+    border-left-color: #ffcc00;
+    color: #ddd;
+  }
+
+  .verification-instructions pre {
+    background-color: #333;
+    color: #ddd;
+  }
+}
